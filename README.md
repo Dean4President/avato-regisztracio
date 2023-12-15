@@ -6,18 +6,17 @@ Try to experience with PostgreSQL
 
 ### Current Structure of Database
 
-Currently there is two different database for each type of registration (kors or gyuru)
+Currently there is two different database for each type of registration (korso or gyuru) with the following tables:
 
 #### Registered Students
 
 | Field name | Type         | Comment                            |
 | ---------- | ------------ | ---------------------------------- |
-| id         | INT(10)      | Primary Key, Auto increment        |
+| id         | INT(10)      | Primary Key, Auto Increment        |
 | name       | TEXT         |                                    |
-| email      | TEXT         |                                    |
-| neptun     | VARCHAR(6)   |                                    |
-| tipus      | VARCHAR(50)  | No longer necessary                |
-| neptun     | VARCHAR(6)   |                                    |
+| email      | TEXT         | Unique                             |
+| neptun     | VARCHAR(6)   | Unique                             |
+| tipus      | VARCHAR(50)  | Currently not necessary            |
 | megjegyzes | TEXT         |                                    |
 | reg_time   | TIMESTAMP    |                                    |
 | verif      | VARCHAR(200) | Unique hash needed for confimation |
@@ -28,17 +27,17 @@ Currently there is two different database for each type of registration (kors or
 | Field name | Type        | Comment                                                     |
 | ---------- | ----------- | ----------------------------------------------------------- |
 | neptun_k   | VARCHAR(6)  | Primary Key                                                 |
-| tipus      | VARCHAR(50) | No longer necessary                                         |
+| tipus      | VARCHAR(50) | Currently not necessary                                     |
 | db         | INT(10)     | Remaining number of possible registrations (usually 1 or 0) |
 
 #### Registration Options
 
-| Field name | Type      | Comment                                                                   |
-| ---------- | --------- | ------------------------------------------------------------------------- |
-| id         | INT(10)   | Primary Key, Auto Increment                                               |
-| letszam    | INT(10)   | Maximum number of participants                                            |
-| kezdes     | TIMESTAMP | Time when registration opens                                              |
-| vege       | TIMESTAMP | Time when registration closes (if there is less participant then maximum) |
+| Field name | Type      | Comment                                                                  |
+| ---------- | --------- | ------------------------------------------------------------------------ |
+| id         | INT(10)   | Primary Key, Auto Increment                                              |
+| letszam    | INT(10)   | Maximum number of participants                                           |
+| kezdes     | TIMESTAMP | When the registration opens                                              |
+| vege       | TIMESTAMP | When the registration closes (if there is less participant then maximum) |
 
 ## Backend
 
@@ -50,24 +49,24 @@ Will be developed in C#
 
 - Authenticate API calls
     - maybe use BFF to hide Backend API from the public?
-- user management fro admin pages?
-    - maybe synch it with HÖK emails
+- user management for admin pages?
+    - try experimenting with syncing university email accounts
 
 ## Backend For Frontend (BFF)
 
-Do we need this? If yes, what language we want to write in it?
+Do we need this? If yes, what language do we want to write in it?
 
 ## Frontend
 
 ### Language
 
-Will be developed in React
+Will be developed in React with TypeScript
 
-### CSS Framwork
+### CSS Framework
 
 Not decided yet. Depend on UX Design
 
-Worth to notice: React Bootstrap library
+Worth to notice: *React Bootstrap library*
 
 ### UX Design
 
@@ -82,6 +81,29 @@ It includes the following pages:
     - Can be implemted inside another page for error messages
     - There are some scenario an own page would be more clear (i.e. Successful registration)
 
+### Admin Pages
+
+Necessary operations:
+- Registration options:
+    - Change maximum number of participants
+    - Change when the registration opens
+    - Change when the registration closes
+- Participants options:
+    - List registrations (either korso and gyuru, or all of them)
+    - Select columns user want to display
+    - Download the list of registrations
+    - Search in the list
+    - Mark registration as cancelled (or just delete them) **with confirmatory modal**
+- Email options:
+    - Edit email for one participant
+    - Resend verification email
+        - for one participant
+        - for all the unverified participant
+        - these options should be able to access from the list of participants page
+- Neptun code options:
+    - Add one Neptun code to the Voucher table (with the chosen type)
+    - Reset vouchers from file (bulk update)
+ 
 ### Routing
 
 Public pages can be done without their own routing, in one component and determine what we show based on type of the registration and do we have a neptun code or not.
@@ -104,12 +126,12 @@ Neptun code must be validated once it's entered and once when the form is submit
 
 ## Deployment
 
-Deployment is a blackbox for me. Definitely need to do deep research in this topic. Consider the using of the kubernetes, docker, kafka etc.
+Deployment is a blackbox for me. Definitely need to do deep research in this topic. Consider the using of the kubernetes, docker, kafka, terraform etc.
 
-Must follow best practices and principals, we need to treat this poject as it's in business environment.
+Must follow best practices and principals. We need to treat this poject as it's in business environment.
 
 The point of this project is to learn the ways of deployment and other part of a development lifecycle.
 
 ## Servers
 
-In the past we got the offer to move our Wordpress web pages to University servers. We would like to explore this opportunity which will enable us to do more uniqie things with our platforms as our current hosting solution creates thight barriers for us.
+In the past we got the offer to move our Wordpress web pages to University servers. We would like to explore this opportunity which will enable us to do more unique things with our platforms as our current hosting solution creates thight barriers for us.
