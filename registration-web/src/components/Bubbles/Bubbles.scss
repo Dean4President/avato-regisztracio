@@ -1,0 +1,50 @@
+@import '~compass-mixins/lib/compass/css3';
+@import url('https://fonts.cdnfonts.com/css/brandon-printed');
+
+$gradien-start: rgba(133, 96, 58, 1);
+$gradien-end: rgba(80, 58, 35,1);
+
+
+$bubbles_total: 300;
+$anim_time: 0.01;
+
+.bubble {
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    // border: 1px solid #ccc;
+    border-radius: 50%;
+    position: absolute;
+        @for $bubble from 1 through $bubbles_total {
+            &-#{$bubble} {
+            opacity: (random(100))*0.01;
+            left: #{random(100)}vw;
+            top: #{random(100)}vh;
+            // background-color: rgb(random(255), random(255), random(255));
+                animation: move-#{$bubble} #{30 + $bubble*0.02}s infinite;
+            @include transform(translate(0, 0) scale((random(50) + 150)*0.01));
+        }
+    }
+}
+
+.bubble-gradient-0 {
+    background: radial-gradient(ellipse at top left, $gradien-start 0%, $gradien-end 100%)
+}
+.bubble-gradient-1 {
+    background: radial-gradient(ellipse at top right, $gradien-start 0%, $gradien-end 100%)
+}
+.bubble-gradient-2 {
+    background: radial-gradient(ellipse at bottom left, $gradien-start 0%, $gradien-end 100%)
+}
+.bubble-gradient-3 {
+    background: radial-gradient(ellipse at bottom right, $gradien-start 0%, $gradien-end 100%)
+}
+
+@for $bubble from 1 through $bubbles_total {
+    @keyframes move-#{$bubble}{
+        #{random(30) + 30}% {
+            opacity: #{(random(100))*0.01};
+            @include transform(translate( #{random(10)*0.3}vw, #{random(10)*0.3}vh) scale((random(50) + 150)*0.01));
+        }     
+    }
+}

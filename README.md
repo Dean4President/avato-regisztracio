@@ -66,7 +66,7 @@ Will be developed in React with TypeScript
 
 Not decided yet. Depend on UX Design
 
-Worth to notice: *React Bootstrap library*
+Worth to mention: *React Bootstrap library*
 
 ### UX Design
 

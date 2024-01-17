@@ -1,0 +1,30 @@
+{
+  "name": "registration-web",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@google-cloud/recaptcha-enterprise": "^5.1.1",
+    "@preact/signals": "^1.2.2",
+    "bootstrap": "^5.3.2",
+    "compass-mixins": "^0.12.12",
+    "dotenv": "^16.3.1",
+    "preact": "^10.19.3",
+    "preact-router": "^4.1.2",
+    "react-google-recaptcha": "^3.1.0",
+    "react-router-dom": "^6.21.2"
+  },
+  "devDependencies": {
+    "@preact/preset-vite": "^2.7.0",
+    "@types/node": "^20.11.4",
+    "@types/react-google-recaptcha": "^2.1.8",
+    "sass": "^1.69.7",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.8"
+  }
+}

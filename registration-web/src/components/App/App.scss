@@ -1,0 +1,16 @@
+$button-text-color: rgba(160, 137, 118, 1);
+$button-hover-text-color: lighten(rgba(160, 137, 118, 1), 30%);
+
+.main {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: rgba(0,0,0,1);
+    background: linear-gradient(135deg, rgba(10,10,10,1) 0%, rgba(56,35,21,1) 35%, rgba(5,5,5,1) 80%, rgba(56,35,21,1) 120%);
+}

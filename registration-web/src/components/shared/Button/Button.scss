@@ -1,0 +1,90 @@
+$gradien-start: rgba(133, 96, 58, 1);
+$gradien-end: rgba(80, 58, 35, 1);
+$gradien-hover-start: lighten(rgba(133, 96, 58, 1), 10%);
+$gradien-hover-end: lighten(rgba(80, 58, 35, 1), 10%);
+$button-text-color: rgba(160, 137, 118, 1);
+$button-hover-text-color: lighten(rgba(160, 137, 118, 1), 30%);
+
+.gradient-button {
+    cursor: pointer;
+    display: flow-root;
+    width: 15rem;
+    height: 3rem;
+    line-height: 3rem;
+    position: relative;
+    margin: auto;
+    margin-top: 2rem;
+    padding: auto;
+    // background: inherit;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    border-radius: 32px;
+    text-transform: uppercase;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+
+    span {
+        position: relative;
+        z-index: 2;
+        display: inline-block;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 32px;
+        border: 4px solid transparent;
+        -webkit-mask: linear-gradient(45deg, #000, #000) padding-box,
+        linear-gradient(45deg, #000, #000);
+        -webkit-mask-composite: destination-out;
+        mask-composite: exclude;
+        transition: all 0.2s ease-in-out;
+    }
+
+    &:hover {
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 32px;
+            border: 4px solid transparent;
+            -webkit-mask: linear-gradient(45deg, #000, #000) padding-box,
+                linear-gradient(45deg, #000, #000);
+            -webkit-mask-composite: destination-out;
+            mask-composite: exclude;
+            transition: all 0.2s ease-in-out;
+        }
+    }
+}
+
+.gradient-button-primary {
+    color: $button-text-color;
+
+    &::before {
+        background: linear-gradient(45deg, $gradien-start, $gradien-end) border-box;
+    }
+
+    &:hover {
+        background: linear-gradient(
+            45deg,
+            $gradien-hover-start,
+            $gradien-hover-end
+        );
+        color: $button-hover-text-color;
+
+        &::before {
+            background: linear-gradient(
+                45deg,
+                $gradien-hover-start,
+                $gradien-hover-end
+            ) border-box;
+        }
+    }
+}
