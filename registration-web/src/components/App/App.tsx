@@ -19,6 +19,7 @@ const App: FunctionComponent = () => {
             <BrowserRouter>
                 <Routes>
                     <Route path='/' element={<Home />} />
+                    <Route path='/background' element={<></>} />
                     <Route element={<MainContent />}>
                         <Route path='voucher/:type' element={<Voucher />} />
                         <Route path='register/korso' element={<KorsoRegister />} />
