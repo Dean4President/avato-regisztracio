@@ -37,9 +37,19 @@ a:active {
 .register {
     flex-grow: 1;
     background: none;
-    padding: 2rem 4rem;
     overflow: auto;
 }
+@include media-breakpoint-up(lg) {
+    .register {
+        padding: 1rem 4rem;
+    }
+}
+@include media-breakpoint-down(lg) {
+    .register {
+        padding: 1rem;
+    }
+}
+
 .register::-webkit-scrollbar{
     width: 12px;
     background-color: rgba(0, 0, 0, 0);

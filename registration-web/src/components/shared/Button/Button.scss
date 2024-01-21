@@ -1,3 +1,7 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+
 $gradien-start: rgba(133, 96, 58, 1);
 $gradien-end: rgba(80, 58, 35, 1);
 $gradien-hover-start: lighten(rgba(133, 96, 58, 1), 10%);
@@ -61,6 +65,12 @@ $button-hover-text-color: lighten(rgba(160, 137, 118, 1), 30%);
             mask-composite: exclude;
             transition: all 0.2s ease-in-out;
         }
+    }
+}
+
+@include media-breakpoint-down(lg) {
+    .gradient-button {
+        margin-bottom: 2rem;
     }
 }
 

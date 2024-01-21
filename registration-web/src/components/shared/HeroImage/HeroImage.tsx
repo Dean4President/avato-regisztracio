@@ -1,5 +1,6 @@
 import { FunctionalComponent } from "preact";
 import { RegistrationType } from "../../../services/registration-type.signal";
+import './HeroImage.scss';
 
 interface HeroImageProps {
     type: RegistrationType;
